@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use RateLimit\Exception\LimitExceeded;
@@ -10,7 +8,7 @@ use function time;
 
 final class InMemoryRateLimiter extends ConfigurableRateLimiter implements RateLimiter, SilentRateLimiter
 {
-    private array $store = [];
+    private $store = [];
 
     public function limit(string $identifier): void
     {

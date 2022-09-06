@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit\Exception;
 
 use RateLimit\Rate;
@@ -9,8 +7,8 @@ use RuntimeException;
 
 final class LimitExceeded extends RuntimeException implements RateLimitException
 {
-    private string $identifier;
-    private Rate $rate;
+    private $identifier;
+    private $rate;
 
     public static function for(string $identifier, Rate $rate): self
     {

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use RateLimit\Exception\LimitExceeded;
@@ -12,8 +10,8 @@ use function time;
 
 final class RedisRateLimiter extends ConfigurableRateLimiter implements RateLimiter, SilentRateLimiter
 {
-    private Redis $redis;
-    private string $keyPrefix;
+    private $redis;
+    private $keyPrefix;
 
     public function __construct(Rate $rate, Redis $redis, string $keyPrefix = '')
     {

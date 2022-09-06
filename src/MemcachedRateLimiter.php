@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use Memcached;
@@ -15,8 +13,8 @@ final class MemcachedRateLimiter extends ConfigurableRateLimiter implements Rate
 {
     private const MEMCACHED_SECONDS_LIMIT = 2592000; // 30 days in seconds
 
-    private Memcached $memcached;
-    private string $keyPrefix;
+    private $memcached;
+    private $keyPrefix;
 
     public function __construct(Rate $rate, Memcached $memcached, string $keyPrefix = '')
     {

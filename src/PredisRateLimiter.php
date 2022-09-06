@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use Predis\ClientInterface;
@@ -12,8 +10,8 @@ use function time;
 
 final class PredisRateLimiter extends ConfigurableRateLimiter implements RateLimiter, SilentRateLimiter
 {
-    private ClientInterface $predis;
-    private string $keyPrefix;
+    private $predis;
+    private $keyPrefix;
 
     public function __construct(Rate $rate, ClientInterface $predis, string $keyPrefix = '')
     {

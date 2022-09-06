@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use DateTimeImmutable;
@@ -9,11 +7,11 @@ use function max;
 
 class Status
 {
-    protected string $identifier;
-    protected bool $success;
-    protected int $limit;
-    protected int $remainingAttempts;
-    protected DateTimeImmutable $resetAt;
+    protected $identifier;
+    protected $success;
+    protected $limit;
+    protected $remainingAttempts;
+    protected $resetAt;
 
     final protected function __construct(string $identifier, bool $success, int $limit, int $remainingAttempts, DateTimeImmutable $resetAt)
     {
@@ -24,7 +22,7 @@ class Status
         $this->resetAt = $resetAt;
     }
 
-    public static function from(string $identifier, int $current, int $limit, int $resetTime)
+    public static function from(string $identifier, int $current, int $limit, int $resetTime): Status
     {
         return new static(
             $identifier,

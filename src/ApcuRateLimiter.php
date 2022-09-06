@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace RateLimit;
 
 use RateLimit\Exception\CannotUseRateLimiter;
@@ -17,7 +15,7 @@ use function time;
 
 final class ApcuRateLimiter extends ConfigurableRateLimiter implements RateLimiter, SilentRateLimiter
 {
-    private string $keyPrefix;
+    private $keyPrefix;
 
     public function __construct(Rate $rate, string $keyPrefix = '')
     {
